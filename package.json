@@ -1,0 +1,26 @@
+{
+	"name": "campaignKikstart",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"deploy": "node -r dotenv/config Campaign/deploy.js dotenv_config_path=.env.local",
+		"test": "mocha",
+		"dev": "next dev"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@truffle/hdwallet-provider": "^2.0.8",
+		"dotenv": "^16.0.0",
+		"fs-extra": "^10.1.0",
+		"ganache-cli": "^6.12.2",
+		"mocha": "^9.2.2",
+		"next": "^12.1.5",
+		"react": "^18.1.0",
+		"react-dom": "^18.1.0",
+		"solc": "^0.8.13",
+		"web3": "^1.7.3"
+	}
+}
