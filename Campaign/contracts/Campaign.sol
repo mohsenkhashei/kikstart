@@ -56,15 +56,12 @@ contract Campaign {
     
 
     function createRequest(string memory description, uint value, address recipient) public restricted {
-
         Request storage r = requests[numRequests++];
             r.description = description;
             r.value = value;
             r.recipient = recipient;
             r.complete = false;
             r.approvalCount = 0;
-        
-
     }
 
     function approveRequest(uint index) public {
@@ -88,5 +85,21 @@ contract Campaign {
         payable(request.recipient).transfer(request.value);
         request.complete = true;
 
+    }
+
+    function getSummary() public view returns(
+        uint, uint, uint, uint, address
+    ) {
+        return (
+            minimumContribution,
+            address(this).balance,
+            numRequests,
+            approversCount,
+            manager
+        );
+    }
+
+    function getRequestsCount() public view returns (uint) {
+        return numRequests;
     }
 }
